@@ -1,3 +1,4 @@
+org/things/gateway/rest/TesteMQTT.class
 org/things/gateway/rest/ThingBean.class
 org/things/gateway/rest/ThingService.class
 org/things/gateway/rest/ThingsApp.class
