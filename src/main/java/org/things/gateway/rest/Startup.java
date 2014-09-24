@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
-
+import static org.things.Things.*;
 /**
  *
  * @author vsenger
@@ -30,7 +30,10 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 public class Startup extends HttpServlet {
 
     static MqttClient client;
-
+    @Override
+    public void destroy() {
+        things.close();
+    }
     @Override
     public void init() throws ServletException {
         try {

@@ -171,6 +171,7 @@ public class ThingService {
         } else {
             System.out.println("Writing " + param + " into " + commandP + " in " + FTDI);
             things.execute(FTDI, commandP, param);
+            things.close();
             return commandP;
         }
     }
