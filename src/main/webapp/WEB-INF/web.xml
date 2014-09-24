@@ -6,7 +6,7 @@
         <servlet-name>Things</servlet-name>
         <servlet-class>org.things.gateway.rest.ThingsApp</servlet-class>
         <load-on-startup>1</load-on-startup>  
-    </servlet>
+    </servlet> 
     <!--<servlet>
         <description>JAX-RS Tools Generated - Do not modify</description>
         <servlet-name>JAX-RS Servlet</servlet-name>
