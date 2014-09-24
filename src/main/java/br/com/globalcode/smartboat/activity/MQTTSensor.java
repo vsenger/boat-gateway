@@ -26,15 +26,15 @@ public class MQTTSensor extends TimerTask {
             String alcohol = things.execute(ThingService.FTDI, "alcohol", null);
             Thread.sleep(500);
             String temp = things.execute(ThingService.FTDI, "temp_out", null);
-            Thread.sleep(500);
+            Thread.sleep(1000);
             String humidity = things.execute(ThingService.FTDI, "humidity", null);
-            Thread.sleep(500);
+            Thread.sleep(1000);
             String distance = things.execute(ThingService.FTDI, "distance", null);
-            Thread.sleep(500);
+            Thread.sleep(1000);
             String presence = things.execute(ThingService.FTDI, "presence", null);
-            Thread.sleep(500);
+            Thread.sleep(1000);
             String current = things.execute(ThingService.FTDI, "current", null);
-            Thread.sleep(500);
+            Thread.sleep(3000);
             String msg = "gas: " + alcohol + "|temperature: " + temp + "|humidity: " + humidity
                     + "|distance: " + distance + "|presence: " + presence + "|current: " + current;
             System.out.println("MQTT Message " + msg);

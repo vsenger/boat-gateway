@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package br.com.globalcode.smartboat.activity;
+
+
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
@@ -16,21 +12,11 @@ import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import java.io.IOException;
-import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author vsenger
- */
-public class TimeLapse  extends TimerTask {
-
- 
-    @Override
-    public void run() {
-
-    }
+public final class SmartBoat {
+    
     public static final String CAMERA_OPTS = " -w 800 -h 600 -q 75  ";
     
     public static final String DIR = "/home/pi/java/apache-tomcat-8.0.9/webapps/combike/assets/2014-08-09/";
