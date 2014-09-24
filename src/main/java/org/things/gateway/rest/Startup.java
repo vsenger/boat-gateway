@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import static org.things.Things.*;
+
 /**
  *
  * @author vsenger
@@ -30,28 +31,25 @@ import static org.things.Things.*;
 public class Startup extends HttpServlet {
 
     static MqttClient client;
+
     @Override
     public void destroy() {
         things.close();
     }
+
     @Override
     public void init() throws ServletException {
-        try {
-            super.init(); //To change body of generated methods, choose Tools | Templates.
-            System.out.println("Init MQTT Sensor Task");
-            TimerTask timerTask = new MQTTSensor();
-            //running timer task as daemon thread
-            Timer timer = new Timer(true);
-            timer.scheduleAtFixedRate(timerTask, 0, 30 * 1000);
-            client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
-            client.connect();
-            /*MQTTListener l = new MQTTListener();
-            client.setCallback(l);
-            client.subscribe("things/smartboat/tiziu/request");*/
-            
-        } catch (MqttException ex) {
-            Logger.getLogger(Startup.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        super.init(); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Init MQTT Sensor Task");
+        TimerTask timerTask = new MQTTSensor();
+        //running timer task as daemon thread
+        Timer timer = new Timer(true);
+        timer.scheduleAtFixedRate(timerTask, 0, 30 * 1000);
+        /*client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
+         client.connect();*/
+        /*MQTTListener l = new MQTTListener();
+         client.setCallback(l);
+         client.subscribe("things/smartboat/tiziu/request");*/
 
     }
 
