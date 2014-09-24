@@ -30,7 +30,8 @@ import static org.things.Things.*;
 
 public class Startup extends HttpServlet {
 
-    static MqttClient client;
+    
+    Thread t = new MQTTSensor();
 
     @Override
     public void destroy() {
@@ -41,10 +42,11 @@ public class Startup extends HttpServlet {
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
         System.out.println("Init MQTT Sensor Task");
-        TimerTask timerTask = new MQTTSensor();
+        //TimerTask timerTask = new MQTTSensor();
         //running timer task as daemon thread
-        Timer timer = new Timer(true);
-        timer.scheduleAtFixedRate(timerTask, 0, 30 * 1000);
+        //Timer timer = new Timer(true);
+        //timer.scheduleAtFixedRate(timerTask, 0, 30 * 1000);
+        t.start();
         /*client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
          client.connect();*/
         /*MQTTListener l = new MQTTListener();

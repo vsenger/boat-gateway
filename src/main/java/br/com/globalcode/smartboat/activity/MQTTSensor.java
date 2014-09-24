@@ -20,44 +20,46 @@ import org.things.gateway.rest.ThingService;
  *
  * @author vsenger
  */
-public class MQTTSensor extends TimerTask {
+public class MQTTSensor extends Thread {
 
     @Override
     public void run() {
-        try {
-            String alcohol = things.execute(ThingService.FTDI, "alcohol", null);
-            Thread.sleep(500);
-            String temp = things.execute(ThingService.FTDI, "temp_out", null);
-            Thread.sleep(1000);
-            String humidity = things.execute(ThingService.FTDI, "humidity", null);
-            Thread.sleep(1000);
-            String distance = things.execute(ThingService.FTDI, "distance", null);
-            Thread.sleep(1000);
-            String presence = things.execute(ThingService.FTDI, "presence", null);
-            Thread.sleep(1000);
-            String current = things.execute(ThingService.FTDI, "current", null);
-            Thread.sleep(3000);
-            String msg = "gas: " + alcohol + "|temperature: " + temp + "|humidity: " + humidity
-                    + "|distance: " + distance + "|presence: " + presence + "|current: " + current;
-            System.out.println("MQTT Message " + msg);
-            MqttClient client;
-            client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
-            client.connect();
-            MqttMessage message = new MqttMessage();
-            message.setPayload(
-                    msg.getBytes());
-            client.publish(
-                    "things/smartboat/tiziu/sensor", message);
-            client.disconnect();
-        } catch (MqttException e) {
-            e.printStackTrace();
+        while (true) {
+            try {
+                String alcohol = things.execute(ThingService.FTDI, "alcohol", null);
+                Thread.sleep(500);
+                String temp = things.execute(ThingService.FTDI, "temp_out", null);
+                Thread.sleep(1000);
+                String humidity = things.execute(ThingService.FTDI, "humidity", null);
+                Thread.sleep(1000);
+                String distance = things.execute(ThingService.FTDI, "distance", null);
+                Thread.sleep(1000);
+                String presence = things.execute(ThingService.FTDI, "presence", null);
+                Thread.sleep(1000);
+                String current = things.execute(ThingService.FTDI, "current", null);
+                Thread.sleep(3000);
+                String msg = "gas: " + alcohol + "|temperature: " + temp + "|humidity: " + humidity
+                        + "|distance: " + distance + "|presence: " + presence + "|current: " + current;
+                System.out.println("MQTT Message " + msg);
+                MqttClient client;
+                client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
+                client.connect();
+                MqttMessage message = new MqttMessage();
+                message.setPayload(
+                        msg.getBytes());
+                client.publish(
+                        "things/smartboat/tiziu/sensor", message);
+                client.disconnect();
+                Thread.sleep(30000);
+            } catch (MqttException e) {
+                e.printStackTrace();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }
+
         }
-
-
     }
 
 }
