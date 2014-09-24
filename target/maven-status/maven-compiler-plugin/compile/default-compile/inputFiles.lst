@@ -1,10 +1,6 @@
-/media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/br/com/globalcode/smartboat/activity/Networking.java
 /media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/org/things/gateway/rest/TesteMQTT.java
 /media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/org/things/gateway/rest/Startup.java
 /media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/br/com/globalcode/smartboat/activity/MQTTSensor.java
 /media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/org/things/gateway/rest/ThingsApp.java
-/media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/br/com/globalcode/smartboat/activity/MQTTListener.java
-/media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/br/com/globalcode/smartboat/activity/TimeLapse.java
 /media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/org/things/gateway/rest/ThingService.java
-/media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/br/com/globalcode/smartboat/activity/SmartBoat.java
 /media/vsenger/NewVinicius/projetos/Things-Power-Gateway/src/main/java/org/things/gateway/rest/ThingBean.java

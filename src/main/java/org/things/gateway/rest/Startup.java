@@ -5,21 +5,14 @@
  */
 package org.things.gateway.rest;
 
-import br.com.globalcode.smartboat.activity.MQTTListener;
 import br.com.globalcode.smartboat.activity.MQTTSensor;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttException;
 import static org.things.Things.*;
 
 /**

@@ -1,11 +1,6 @@
 org/things/gateway/rest/TesteMQTT.class
-br/com/globalcode/smartboat/activity/SmartBoat$1.class
-org/things/gateway/rest/ThingService.class
-br/com/globalcode/smartboat/activity/TimeLapse$1.class
-br/com/globalcode/smartboat/activity/Networking.class
-br/com/globalcode/smartboat/activity/SmartBoat.class
-br/com/globalcode/smartboat/activity/TimeLapse.class
 org/things/gateway/rest/ThingBean.class
 br/com/globalcode/smartboat/activity/MQTTSensor.class
+org/things/gateway/rest/ThingService.class
 org/things/gateway/rest/ThingsApp.class
 org/things/gateway/rest/Startup.class
