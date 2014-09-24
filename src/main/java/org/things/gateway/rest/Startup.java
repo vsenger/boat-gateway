@@ -41,12 +41,12 @@ public class Startup extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("Init MQTT Sensor Task");
+        System.out.println("Init MQTT Sensor Task BLAAAAAA");
         //TimerTask timerTask = new MQTTSensor();
         //running timer task as daemon thread
         //Timer timer = new Timer(true);
         //timer.scheduleAtFixedRate(timerTask, 0, 30 * 1000);
-        t.start();
+        t.start();  
         /*client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
          client.connect();*/
         /*MQTTListener l = new MQTTListener();
