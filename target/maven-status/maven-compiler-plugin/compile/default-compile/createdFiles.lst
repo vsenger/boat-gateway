@@ -1,4 +1,6 @@
 org/things/gateway/rest/TesteMQTT.class
-org/things/gateway/rest/ThingBean.class
 org/things/gateway/rest/ThingService.class
+br/com/globalcode/smartboat/activity/TimeLapse.class
+org/things/gateway/rest/ThingBean.class
 org/things/gateway/rest/ThingsApp.class
+org/things/gateway/rest/Startup.class

@@ -40,7 +40,7 @@ public class ThingService {
         }
     }
     int relays[] = {0, 4, 25, 22, 27, 18, 23};
-    String FTDI, FTDI2;
+    public static String FTDI="/dev/ttyUSB0", FTDI2;
     Runtime rt = Runtime.getRuntime();
 
     @GET

@@ -24,7 +24,7 @@ public class TesteMQTT {
       client = new MqttClient("tcp://iot.eclipse.org:1883","tiziu-smartboat");
       client.connect();
       MqttMessage message = new MqttMessage();
-      message.setPayload("A single message".getBytes());
+      message.setPayload("A single message sensor x".getBytes());
       client.publish("things/smartboat/tiziu/test", message);
       client.disconnect();
     } catch (MqttException e) {
