@@ -22,6 +22,7 @@ public class MQTTListener implements MqttCallback {
 
     @Override
     public void messageArrived(String string, MqttMessage mm) throws Exception {
+        System.out.println("MESSAGE " + mm);
         if(mm.toString().equals("picture")) {
             
         }
