@@ -52,10 +52,9 @@ public class MQTTSensor extends TimerTask {
 
         } catch (Exception e) {
             e.printStackTrace();
-
+            
         }
 
-        System.out.println("Timer task started at:" + new Date());
 
     }
 
