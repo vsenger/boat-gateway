@@ -37,7 +37,7 @@ public class MQTTSensor extends TimerTask {
             Thread.sleep(500);
             String msg = "gas: " + alcohol + "|temperature: " + temp + "|humidity: " + humidity + 
                     "|distance: " + distance + "|presence: " + presence + "|current: " + current;
-            
+            System.out.println("MQTT Message " + msg);
             MqttClient client; 
             client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
             client.connect();
