@@ -8,6 +8,8 @@ package br.com.globalcode.smartboat.activity;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -42,6 +44,7 @@ public class MQTTSensor extends Thread {
                         + "|distance: " + distance + "|presence: " + presence + "|current: " + current;
                 System.out.println("MQTT Message " + msg);
                 MqttClient client;
+                System.out.println("Getting client MQTT - 1234");
                 client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
                 client.connect();
                 MqttMessage message = new MqttMessage();
@@ -50,13 +53,17 @@ public class MQTTSensor extends Thread {
                 client.publish(
                         "things/smartboat/tiziu/sensor", message);
                 client.disconnect();
-                Thread.sleep(30000);
             } catch (MqttException e) {
                 e.printStackTrace();
 
             } catch (Exception e) {
                 e.printStackTrace();
 
+            }
+            try {
+                Thread.sleep(30000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MQTTSensor.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
