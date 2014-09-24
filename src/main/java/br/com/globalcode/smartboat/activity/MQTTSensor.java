@@ -22,7 +22,7 @@ public class MQTTSensor extends TimerTask {
 
     @Override
     public void run() {
-        try { 
+        try {
             String alcohol = things.execute(ThingService.FTDI, "alcohol", null);
             Thread.sleep(500);
             String temp = things.execute(ThingService.FTDI, "temp_out", null);
@@ -35,10 +35,10 @@ public class MQTTSensor extends TimerTask {
             Thread.sleep(500);
             String current = things.execute(ThingService.FTDI, "current", null);
             Thread.sleep(500);
-            String msg = "gas: " + alcohol + "|temperature: " + temp + "|humidity: " + humidity + 
-                    "|distance: " + distance + "|presence: " + presence + "|current: " + current;
+            String msg = "gas: " + alcohol + "|temperature: " + temp + "|humidity: " + humidity
+                    + "|distance: " + distance + "|presence: " + presence + "|current: " + current;
             System.out.println("MQTT Message " + msg);
-            MqttClient client; 
+            MqttClient client;
             client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
             client.connect();
             MqttMessage message = new MqttMessage();
@@ -56,17 +56,7 @@ public class MQTTSensor extends TimerTask {
         }
 
         System.out.println("Timer task started at:" + new Date());
-        completeTask();
-        System.out.println("Timer task finished at:" + new Date());
-    }
 
-    private void completeTask() {
-        try {
-            //assuming it takes 20 secs to complete the task
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 }
