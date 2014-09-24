@@ -45,9 +45,9 @@ public class Startup extends HttpServlet {
             timer.scheduleAtFixedRate(timerTask, 0, 30 * 1000);
             client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
             client.connect();
-            MQTTListener l = new MQTTListener();
+            /*MQTTListener l = new MQTTListener();
             client.setCallback(l);
-            client.subscribe("things/smartboat/tiziu/request");
+            client.subscribe("things/smartboat/tiziu/request");*/
             
         } catch (MqttException ex) {
             Logger.getLogger(Startup.class.getName()).log(Level.SEVERE, null, ex);

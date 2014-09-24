@@ -6,6 +6,7 @@
 
 package br.com.globalcode.smartboat.activity;
 
+import static br.com.globalcode.smartboat.activity.TimeLapse.rt;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -27,6 +28,9 @@ public class MQTTListener implements MqttCallback {
             
         }
         else if(mm.toString().equals("update")) {
+            TimeLapse.speak("updating", "en");
+            Process pr1 = rt.exec("/home/pi/things.sh");
+            pr1.waitFor();  
             
         }
     }

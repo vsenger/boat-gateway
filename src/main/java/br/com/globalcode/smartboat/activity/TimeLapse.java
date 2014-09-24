@@ -33,7 +33,7 @@ public class TimeLapse  extends TimerTask {
     }
     public static final String CAMERA_OPTS = " -w 800 -h 600 -q 75  ";
     
-    public static final String DIR = "/home/pi/java/apache-tomcat-8.0.9/webapps/combike/assets/2014-08-09/";
+    public static final String DIR = "/home/pi/java/apache-tomcat-8.0.9/webapps/boat/picture";
     final static GpioPinDigitalOutput myLed[] = new GpioPinDigitalOutput[3];
     static boolean alternate;
     public static String PICTUREFILENAME = "picamera";
