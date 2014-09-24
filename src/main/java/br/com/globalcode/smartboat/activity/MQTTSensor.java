@@ -28,6 +28,8 @@ public class MQTTSensor extends Thread {
     public void run() {
         while (true) {
             try {
+                System.out.println("Things start reading Arduino... ");
+
                 String alcohol = things.execute(ThingService.FTDI, "alcohol", null);
                 Thread.sleep(500);
                 String temp = things.execute(ThingService.FTDI, "temp_out", null);
@@ -42,9 +44,10 @@ public class MQTTSensor extends Thread {
                 Thread.sleep(500);
                 String msg = "gas: " + alcohol + "|temperature: " + temp + "|humidity: " + humidity
                         + "|distance: " + distance + "|presence: " + presence + "|current: " + current;
+
                 System.out.println("MQTT Message " + msg);
                 MqttClient client;
-                System.out.println("Getting client MQTT - 1234");
+                System.out.println("Getting client MQTT - OKKKKKK");
                 client = new MqttClient("tcp://iot.eclipse.org:1883", "tiziu-smartboat");
                 client.connect();
                 MqttMessage message = new MqttMessage();
@@ -54,16 +57,21 @@ public class MQTTSensor extends Thread {
                         "things/smartboat/tiziu/sensor", message);
                 client.disconnect();
             } catch (MqttException e) {
+                System.out.println("MQTT Exception!!!!");
+
                 e.printStackTrace();
 
             } catch (Exception e) {
+                System.out.println("Generic Exception!!!!");
+
                 e.printStackTrace();
 
             }
             try {
                 Thread.sleep(30000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(MQTTSensor.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                System.out.println("Interrupted Exception!!!!");
+                //Logger.getLogger(MQTTSensor.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
